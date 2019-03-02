@@ -16,7 +16,12 @@ gem 'puma', '~> 3.11'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#Used to make GET requests to API when seeding the database
 gem 'rest-client'
+
+#Used to serialize info the API shares
+gem 'fast_jsonapi'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
