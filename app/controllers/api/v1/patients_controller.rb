@@ -1,39 +1,35 @@
-class Api::V1::AppointmentsController < ApplicationController
+class Api::V1::PatientsController < ApplicationController
 
   def index
-    @appoinment = Appointment.all
-    render json: @appoinment, status: :ok
+    @patient = PatientSerializer.new(Patient.all).serialized_json
+    render json: @patient, status: :ok
   end
 
   def show
-    @appoinment = Appointment.find(params[:id])
-    render json: @appoinment, status: :ok
+    @patient = PatientSerializer.new(Patient.find(params[:id])).serialized_json
+    render json: @patient, status: :ok
   end
 
   def create
-    @appoinment = Appointment.create(appoinment_params)
-    render json: @appoinment, status: :ok
+    @patient = Patient.create(patient_params)
+    render json: @patient, status: :ok
   end
 
-  # after a user of the website has booked a reservation for an activity
-  # this route allows a PATCH to be made to the /api/v1/activities/:id
-  # to decrement the spaces available based on the number of spots requested in the reservation
   def update
-    @appoinment = Appointment.find(params[:id])
-    @appoinment.update(appoinment_params)
-    render json: @appoinment, status: :ok
+    @patient = Patient.find(params[:id])
+    @patient.update(patient_params)
+    render json: @patient, status: :ok
   end
 
   def destroy
-    @appoinment = Appointment.find(params[:id])
-    @appoinment.destroy
-    render json: {message: "Appointment record deleted."}, status: :ok
+    @patient = Patient.find(params[:id])
+    @patient.destroy
+    render json: {message: "Patient record deleted."}, status: :ok
   end
 
   private
 
-  # only allows :positions_open to be changed during the PATCH
-  def appoinment_params
-    params.require(:appoinment).permit(ITEMS NEEDED HERE TO WHITELIST)
+  def patient_params
+    params.require(:appoinment).permit(:first_name, :last_name, :email, :city, :state, :street, :zip, :phone)
   end
 end

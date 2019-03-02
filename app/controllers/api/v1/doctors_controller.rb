@@ -1,14 +1,12 @@
 class Api::V1::DoctorsController < ApplicationController
 
-  # allows a fetch to be made to the /api/v1/activities url
-  # and returns all activities in the database
   def index
-    @doctors = Doctor.all
+    @doctors = DoctorSerializer.new(Doctor.all).serialized_json
     render json: @doctors, status: :ok
   end
 
   def show
-    @doctor = Doctor.find(params[:id])
+    @doctor = DoctorSerializer.new(Doctor.find(params[:id])).serialized_json
     render json: @doctor, status: :ok
   end
 
@@ -17,9 +15,6 @@ class Api::V1::DoctorsController < ApplicationController
     render json: @doctor, status: :ok
   end
 
-  # after a user of the website has booked a reservation for an activity
-  # this route allows a PATCH to be made to the /api/v1/activities/:id
-  # to decrement the spaces available based on the number of spots requested in the reservation
   def update
     @doctor = Doctor.find(params[:id])
     @doctor.update(doctor_params)
@@ -34,8 +29,7 @@ class Api::V1::DoctorsController < ApplicationController
 
   private
 
-  # only allows :positions_open to be changed during the PATCH
   def doctor_params
-    params.require(:doctor).permit(ITEMS NEEDED HERE TO WHITELIST)
+    params.require(:doctor).permit(:first_name, :last_name, :bio, :specialty, :license_state, :license_number, :accepts_new_patients, :city, :state, :street, :zip, :website)
   end
 end
