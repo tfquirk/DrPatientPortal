@@ -3,10 +3,13 @@ require 'byebug'
 require 'json'
 
 #### MUST ADD API-KEY WHERE API IS
+API = "aa6327e98ce2da2d8d2d498be78d6164"
+
+Doctor.destroy_all
 
 puts "Let's Seed This Thing!"
 #internal Medicine
-response = RestClient.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=internist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=API')
+response = RestClient.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=internist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=#{API}")
 data = JSON.parse(response)
 
 puts "Starting Loop..."
@@ -43,6 +46,8 @@ counter = 0
     state = practice["visit_address"]["state_long"]
     street = practice["visit_address"]["street"]
     zip = practice["visit_address"]["zip"]
+    lat = practice["visit_address"]["lat"]
+    long = practice["visit_address"]["lon"]
     #
     phone = practice["phones"][0]["number"]
     #
@@ -60,7 +65,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -74,7 +79,7 @@ puts "End of Loop"
 # #___________________________________________________________________________________
 # # Dentist
 #
-response = RestClient.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=dentist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=API')
+response = RestClient.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=dentist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=#{API}")
 data = JSON.parse(response)
 
 counter = 0
@@ -96,6 +101,8 @@ counter = 0
     state = practice["visit_address"]["state_long"]
     street = practice["visit_address"]["street"]
     zip = practice["visit_address"]["zip"]
+    lat = practice["visit_address"]["lat"]
+    long = practice["visit_address"]["lon"]
     #
     phone = practice["phones"][0]["number"]
     #
@@ -113,7 +120,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -127,7 +134,7 @@ puts "End of Loop"
 #___________________________________________________________________________________
 # Psychiatrist
 #
-response = RestClient.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=psychiatrist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=API')
+response = RestClient.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=psychiatrist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=#{API}")
 data = JSON.parse(response)
 
 counter = 0
@@ -149,6 +156,8 @@ counter = 0
     state = practice["visit_address"]["state_long"]
     street = practice["visit_address"]["street"]
     zip = practice["visit_address"]["zip"]
+    lat = practice["visit_address"]["lat"]
+    long = practice["visit_address"]["lon"]
     #
     phone = practice["phones"][0]["number"]
     #
@@ -166,7 +175,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -181,7 +190,7 @@ puts "End of Loop"
 # #___________________________________________________________________________________
 #
 
-response = RestClient.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=ophthalmologist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=API')
+response = RestClient.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=ophthalmologist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=#{API}")
 data = JSON.parse(response)
 
 counter = 0
@@ -203,6 +212,8 @@ counter = 0
     state = practice["visit_address"]["state_long"]
     street = practice["visit_address"]["street"]
     zip = practice["visit_address"]["zip"]
+    lat = practice["visit_address"]["lat"]
+    long = practice["visit_address"]["lon"]
     #
     phone = practice["phones"][0]["number"]
     #
@@ -220,7 +231,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -237,7 +248,7 @@ puts "End of Loop"
 # #___________________________________________________________________________________
 #
 
-response = RestClient.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=family-practitioner&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=API')
+response = RestClient.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=family-practitioner&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=#{API}")
 data = JSON.parse(response)
 
 counter = 0
@@ -259,6 +270,8 @@ counter = 0
     state = practice["visit_address"]["state_long"]
     street = practice["visit_address"]["street"]
     zip = practice["visit_address"]["zip"]
+    lat = practice["visit_address"]["lat"]
+    long = practice["visit_address"]["lon"]
     #
     phone = practice["phones"][0]["number"]
     #
@@ -276,7 +289,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -291,7 +304,7 @@ puts "End of Loop"
 # #___________________________________________________________________________________
 #
 #
-response = RestClient.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=emergency-medicine-doctor&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=API')
+response = RestClient.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=emergency-medicine-doctor&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=#{API}")
 data = JSON.parse(response)
 
 counter = 0
@@ -313,6 +326,8 @@ counter = 0
     state = practice["visit_address"]["state_long"]
     street = practice["visit_address"]["street"]
     zip = practice["visit_address"]["zip"]
+    lat = practice["visit_address"]["lat"]
+    long = practice["visit_address"]["lon"]
     #
     phone = practice["phones"][0]["number"]
     #
@@ -330,7 +345,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -345,7 +360,7 @@ puts "End of Loop"
 # #___________________________________________________________________________________
 
 
-response = RestClient.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=physical-therapist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=API')
+response = RestClient.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=physical-therapist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=#{API}")
 data = JSON.parse(response)
 
 counter = 0
@@ -367,6 +382,8 @@ counter = 0
     state = practice["visit_address"]["state_long"]
     street = practice["visit_address"]["street"]
     zip = practice["visit_address"]["zip"]
+    lat = practice["visit_address"]["lat"]
+    long = practice["visit_address"]["lon"]
     #
     phone = practice["phones"][0]["number"]
     #
@@ -384,7 +401,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -399,7 +416,7 @@ puts "End of Loop"
 # #___________________________________________________________________________________
 #
 
-response = RestClient.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=API')
+response = RestClient.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=#{API}")
 data = JSON.parse(response)
 
 counter = 0
@@ -421,6 +438,8 @@ counter = 0
     state = practice["visit_address"]["state_long"]
     street = practice["visit_address"]["street"]
     zip = practice["visit_address"]["zip"]
+    lat = practice["visit_address"]["lat"]
+    long = practice["visit_address"]["lon"]
     #
     phone = practice["phones"][0]["number"]
     #
@@ -438,7 +457,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -453,7 +472,7 @@ puts "End of Loop"
 # #___________________________________________________________________________________
 #
 
-response = RestClient.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=obstetrics-gynecologist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=API')
+response = RestClient.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=obstetrics-gynecologist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=#{API}")
 data = JSON.parse(response)
 
 counter = 0
@@ -475,6 +494,8 @@ counter = 0
     state = practice["visit_address"]["state_long"]
     street = practice["visit_address"]["street"]
     zip = practice["visit_address"]["zip"]
+    lat = practice["visit_address"]["lat"]
+    long = practice["visit_address"]["lon"]
     #
     phone = practice["phones"][0]["number"]
     #
@@ -492,7 +513,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -507,7 +528,7 @@ puts "End of Loop"
 # #___________________________________________________________________________________
 #
 
-response = RestClient.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pain-medicine-physiatrist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=API')
+response = RestClient.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pain-medicine-physiatrist&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=#{API}")
 data = JSON.parse(response)
 
 counter = 0
@@ -529,6 +550,8 @@ counter = 0
     state = practice["visit_address"]["state_long"]
     street = practice["visit_address"]["street"]
     zip = practice["visit_address"]["zip"]
+    lat = practice["visit_address"]["lat"]
+    long = practice["visit_address"]["lon"]
     #
     phone = practice["phones"][0]["number"]
     #
@@ -546,7 +569,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -561,7 +584,7 @@ puts "End of Loop"
 #___________________________________________________________________________________
 
 
-response = RestClient.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=general-surgeon&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=API')
+response = RestClient.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=general-surgeon&location=40.712%2C-74.006%2C10&user_location=40.712%2C-74.006&skip=0&limit=50&user_key=#{API}")
 data = JSON.parse(response)
 
 counter = 0
@@ -583,6 +606,8 @@ counter = 0
     state = practice["visit_address"]["state_long"]
     street = practice["visit_address"]["street"]
     zip = practice["visit_address"]["zip"]
+    lat = practice["visit_address"]["lat"]
+    long = practice["visit_address"]["lon"]
     #
     phone = practice["phones"][0]["number"]
     #
@@ -600,7 +625,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
