@@ -3,7 +3,7 @@ require 'byebug'
 require 'json'
 
 #### MUST ADD API-KEY WHERE API IS
-API = "aa6327e98ce2da2d8d2d498be78d6164"
+# API =  ADD YOUR KEY HERE
 
 Doctor.destroy_all
 
