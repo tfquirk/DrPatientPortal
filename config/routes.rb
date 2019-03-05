@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   namespace :api do
    namespace :v1 do
-     resources :patients, only: [:show]
+     resources :patients, only: [:index, :show]
      resources :doctors, only: [:index, :show, :update]
-     resources :appoinment, only: [:index, :show, :update, :create, :destroy]
+     resources :appointments, only: [:index, :show, :update, :create, :destroy]
     end
   end
 

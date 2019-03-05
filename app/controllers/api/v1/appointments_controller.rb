@@ -1,8 +1,8 @@
 class Api::V1::AppointmentsController < ApplicationController
 
   def index
-    @appoinment = AppointmentSerializer.new(Appointment.all).serialized_json
-    render json: @appoinment, status: :ok
+    @appoinments = AppointmentSerializer.new(Appointment.all).serialized_json
+    render json: @appoinments, status: :ok
   end
 
   def show
