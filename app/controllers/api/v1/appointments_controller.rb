@@ -1,35 +1,36 @@
 class Api::V1::AppointmentsController < ApplicationController
 
   def index
-    @appoinments = AppointmentSerializer.new(Appointment.all).serialized_json
-    render json: @appoinments, status: :ok
+    @appointments = AppointmentSerializer.new(Appointment.all).serialized_json
+    render json: @appointments, status: :ok
   end
 
   def show
-    @appoinment = AppointmentSerializer.new(Appointment.find(params[:id])).serialized_json
-    render json: @appoinment, status: :ok
+    @appointment = AppointmentSerializer.new(Appointment.find(params[:id])).serialized_json
+    render json: @appointment, status: :ok
   end
 
   def create
-    @appoinment = Appointment.create(appoinment_params)
-    render json: @appoinment, status: :ok
+    byebug
+    @appointment = Appointment.create(appointment_params)
+    render json: @appointment, status: :ok
   end
 
   def update
-    @appoinment = Appointment.find(params[:id])
-    @appoinment.update(appoinment_params)
-    render json: @appoinment, status: :ok
+    @appointment = Appointment.find(params[:id])
+    @appointment.update(appointment_params)
+    render json: @appointment, status: :ok
   end
 
   def destroy
-    @appoinment = Appointment.find(params[:id])
-    @appoinment.destroy
+    @appointment = Appointment.find(params[:id])
+    @appointment.destroy
     render json: {message: "Appointment record deleted."}, status: :ok
   end
 
   private
 
-  def appoinment_params
-    params.require(:appoinment).permit(:doctor_id, :patient_id, :appointment)
+  def appointment_params
+    params.require(:appointmentProps).permit(:doctor_id, :patient_id, :appointment)
   end
 end
