@@ -3,7 +3,7 @@ require 'byebug'
 require 'json'
 
 #### MUST ADD API-KEY WHERE API IS
-# API =  ADD YOUR KEY HERE
+# API =  "YOUR API KEY HERE"
 
 Doctor.destroy_all
 
@@ -65,7 +65,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long, gender: gender)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -120,7 +120,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long, gender: gender)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -175,7 +175,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long, gender: gender)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -231,7 +231,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long, gender: gender)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -289,7 +289,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long, gender: gender)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -345,7 +345,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long, gender: gender)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -401,7 +401,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long, gender: gender)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -457,7 +457,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long, gender: gender)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -513,7 +513,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long, gender: gender)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -569,7 +569,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long, gender: gender)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
@@ -625,7 +625,7 @@ counter = 0
 
     puts "Making Doctor [#{counter}]"
     Doctor.create(first_name: firstName, last_name: lastName, bio: bio, specialty: specialty, license_state: license_state, license_number: license_number,
-     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long)
+     accepts_new_patients: accepts_patients, city: city, state: state, street: street, zip: zip, website: website, latitude: lat, longitude: long, gender: gender)
     puts "Doctor [#{counter}] Made!"
   rescue
     puts "Let's just skip this one... [#{counter}]"
