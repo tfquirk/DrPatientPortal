@@ -11,9 +11,14 @@ class Api::V1::AppointmentsController < ApplicationController
   end
 
   def create
-    byebug
-    @appointment = Appointment.create(appointment_params)
-    render json: @appointment, status: :ok
+    @patient = Patient.all.find_or_create_by(email: patient_info["email"])
+    if @patient.first_name == nil
+      @patient.update(patient_info)
+    end
+    @appointment = Appointment.new(appointment_params)
+    @appointment.patient = @patient
+    @appointment.save
+    render json: { confirmed: @appointment, patient_name: @patient["first_name"] }, status: :ok
   end
 
   def update
@@ -31,6 +36,9 @@ class Api::V1::AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointmentProps).permit(:doctor_id, :patient_id, :appointment)
+    params.require(:appointmentProps).permit(:doctor_id, :appointment, :patient_id)
+  end
+  def patient_info
+    params.require(:patient_info).permit(:first_name, :last_name, :phone, :email)
   end
 end
