@@ -20,11 +20,12 @@ This will run your API on port 8000, which the demo is setup to use. Your API wi
 
 ## Demo
 
-Please click on the image below if you would like to see how the app functions:
 [![alt text][image]][reference link]
 
 [image]: https://i9.ytimg.com/vi/D4BzOjFP_ag/mq3.jpg?sqp=CIzGk-UF&rs=AOn4CLDVnqSW3fFfr_XUBhOOwqoPXLL8xg "DocFinder Demo Video"
 [reference link]: https://youtu.be/D4BzOjFP_ag
+
+Please click on the image above if you would like to see a video demo of the DocFinder.
 
 ## Overview  
 
