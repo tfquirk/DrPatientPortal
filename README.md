@@ -4,7 +4,7 @@ Created by: Timothy Quirk and Vincent Chan
 
 Here you will find the back-end for DocFinder, which is a Ruby on Rails API which allows us to persist all users and appointments requested between doctors and patients. 
 
-Our project is meant to be a ZocDoc clone. The project uses a React.js front-end which can be found [here][https://github.com/vchan31/doctor-patient-front-end].
+Our project is meant to be a ZocDoc clone. The project uses a React.js front-end which can be found [here](https://github.com/vchan31/doctor-patient-front-end).
 
 
 ## Setup / Install
